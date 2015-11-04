@@ -104,11 +104,22 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/profile', function(req, res) {
+  // console.log("working" + req.user.id)
 	if(req.user) {
-		res.render('profile')
+  db.favorite.findAll( {
+    where: {
+      userId: req.user.id
+    }
+  }).then(function(data){
+    res.render("profile", {data: data})
+    // res.send(data)
+  })
+
 	}else {
 	res.send("You're not logged in");
 }
 })
+
+
 
 module.exports = router;

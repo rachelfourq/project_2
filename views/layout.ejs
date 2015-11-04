@@ -24,7 +24,7 @@
           <li><a href="/signUp">Signup</a></li>
           <% } else { %>
           <p class="navbar-text">Hello, <%= currentUser.name %></p>
-          
+          <input name='user' type="hidden" value="<%= currentUser.id %>">
           <% } %>
         </ul>
       </div>
