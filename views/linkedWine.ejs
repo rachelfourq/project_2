@@ -1,0 +1,10 @@
+<div class="row" id='title'>
+<h1 class='col s12'><%= data.Products.List[0].Name %></h1>
+</div>
+
+
+<form action="/favorites" method="POST" role="form">
+	<input class="btn btn-primary" name="wineName" type="hidden" value="<%= data.Products.List[0].Name %>">
+
+	<button id='button'>+ TO FAVORITES</button>
+</form>

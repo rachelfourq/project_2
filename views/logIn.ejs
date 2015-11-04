@@ -1,0 +1,24 @@
+  <div class="row">
+        <div class="row">
+			<div class="col s12 m6">
+			<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+		<form class="col s12" action="/logIn" method="POST">
+      		<div class="row">
+        		<div class="input-field col s6">
+	        		<i class="material-icons prefix">account_circle</i>
+	        		<input id="icon_prefix" type="text" class="validate" name='email'>
+	        		<label for="icon_prefix">email</label>
+        		</div>
+        		<div class="input-field col s6">
+          			<i class="material-icons prefix">https</i>
+          			<input id="icon_https" type="password" class="validate" name='password'>
+         			<label for="icon_https">Password</label>
+        		</div>
+      		</div>
+      <button class="submit blue-grey lighten-1">Log in</button>
+    </form>
+    <form method='GET' action='/logIn/facebook'>
+      <button class="submit blue-grey lighten-1">Sign In with Facebook</button> 
+    </form>
+  </div>

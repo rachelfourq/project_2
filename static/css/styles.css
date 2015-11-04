@@ -1,0 +1,19 @@
+/*.container {
+	margin-top: 150px;
+	text-align: center;
+	font-family: 'Advent Pro', sans-serif;
+	font-weight: 200px;
+	background: #99CC33;
+	color: white;
+}*/
+
+.rightButton {
+	/*float: left !important;*/
+	text-align: right;
+}
+
+.leftButton {
+	/*float: right !important;*/
+	text-align: left;
+}
+

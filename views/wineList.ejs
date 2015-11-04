@@ -1,0 +1,6 @@
+<div class="container">
+<% data.Products.List.forEach(function(wine){ %>
+		<a href='<%= "/wineList/" + wine.Id %>'><h2><%= wine.Name %></h2>
+<% }) %>
+</div>
+
