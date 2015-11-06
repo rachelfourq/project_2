@@ -5,12 +5,14 @@ module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define('user', {
     name: DataTypes.STRING,
     password: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    pic: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
         models.user.hasMany(models.provider);
         models.user.hasMany(models.favorite);
+        models.user.hasMany(models.comment);
       },
       authenticate: function(email, password, callback) {
         this.find({where: {email: email}}).then(function(user) {

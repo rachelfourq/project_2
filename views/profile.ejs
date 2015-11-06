@@ -1,48 +1,73 @@
+<!-- side nav -->
+<div class="row">
+<div class="col l3">
+    <ul id="slide-out" class="side-nav fixed">
+    <div class="row">
+    <h3>WeWine.</h3>
+      <li>
+        <img src="<%= userPic %>">
+        <a class="waves-effect white modal-trigger grey-text" href="#modal1">Update Profile Picture</a>
+      </li> 
+      </div>
 
+      <div class="row">   
+
+      <li><h6><i class="fa fa-user"></i> <%= currentUser.name %></h6></li>
+      <li><i class="fa fa-globe"></i> Seattle, WA</li>
+      <li><textarea></textarea></li>
+      </div>
+      <!-- need to add a modal here -->
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</div> 
+
+
+<!-- modal for profile pic -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <form enctype="multipart/form-data" action="/settings" method="post">
+        <input type="file" name="myFile">
+        <button class="submit">Submit</button>
+      </form>
+    </div>
+</div>    
+
+<!-- search bar -->
+<div class="row" id="searchbar">
+<div class="col l6 offset-l2">
 <form action="/wineList" method="POST" role="form">
-	<div class="form-group">
-	 <input class="input" type="text" id="s" name="s" placeholder="ex. Merlot">
-
-	 <button class="submit">Submit</button>
+	<div class="input-field">
+	 <input class="input" id="search" type="search" id="s" name="s" placeholder="SEARCH FOR ANY WINE TO BE ADDED+ TO YOUR FAVORITES">
+   <label for="search"><i class="material-icons">search</i></label>
 	</div>
 </form>
 </div>
-
-<div class="container">
-
-<% data.forEach(function(wine){ %>
-  <ul>
-    <li><img src="<%= wine.image %>"</li>
-    <li><%= wine.title %></li>
-    <li><%= "$" + wine.price %></li>
-  </ul>
-
-
-
-    <% }); %>
-
 </div>
 
 
-
-           <div class ="row">
-               <% data.forEach(function(wine) { %>
-               <div class="col m3">
-                   <div class="card z-depth-3">
-                       <div class="card-image waves-effect waves-block waves-light">
-                           <img class="activator" src="<%= wine.image %>" 
-                       </div>
-       
-                           <div class="row valign-wrapper center-align">
-                               <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">
-                                   <p class="center-align vertical-align"> %>">Details</a></p>
-                               </div>
-                           </div>
-                       </div>
+<!-- cards with fave wines -->
+<div class="col l9 offset-l3">
+   <% data.forEach(function(wine) { %>
+   <div class="col l4">
+      <a href='/favorites/<%= wine.id %>'><div class="card small z-depth-3">
+           <div class=" waves-effect waves-block waves-light  center-align">
+               <img class="circle" src="<%= wine.image %>"> </div>
+              <div id="middle_row" class="row valign-wrapper center-align">
+               <div class="col l10 offset-l1">
+                   <p class="center-align valign-wrapper"><%= wine.title %></p>
+                <div id="bottom_row" class="row valign-wrapper center-align">
+                <div class="col l10 offset-l3">
+                   <a class="delete-btn btn-floating btn-small waves-effect waves-light grey"><i class="material-icons">add</i></a>
+                   </div>
                    </div>
                </div>
-               <% }); %>
-           </div>
+               </div>
+
+          </div>
+
+        </div>
+   <% }); %>
+</div>
 
 
   

@@ -1,6 +1,12 @@
 <div class="container">
+<ul class="collection">
 <% data.Products.List.forEach(function(wine){ %>
-		<a href='<%= "/wineList/" + wine.Id %>'><h2><%= wine.Name %></h2>
+	   <li class="collection-item avatar">
+      <img src="<%= wine.Labels[0].Url %>" class="circle">
+		<span class="title"><a href='<%= "/wineList/" + wine.Id %>'><h2><%= wine.Name %></h2></li>
+
 <% }) %>
+</ul>
 </div>
+
 

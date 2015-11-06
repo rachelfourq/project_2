@@ -8,6 +8,10 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var strategies = require('./config/strategies');
 var LocalStrategy = require('passport-local').Strategy;
+var multer =require('multer');
+var upload = multer({ dest: './uploads/' });
+var cloudinary = require('cloudinary');
+
 //update with layout.ejs page 
 var app = express(); 
 
@@ -18,7 +22,7 @@ app.get('/test', function(req, res){
 })
 
 app.use(ejsLayouts); 
-app.use(express.static(__dirname + '/static'))
+app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(flash());
 
@@ -54,6 +58,7 @@ passport.use(strategies.facebookStrategy);
 app.use(function(req,res,next){
   res.locals.currentUser = req.user;
   res.locals.alerts = req.flash();
+  // res.locals.userPic = ;
   next();
 });
 

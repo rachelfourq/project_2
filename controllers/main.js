@@ -3,6 +3,9 @@ var db = require('./../models')
 var request = require('request');
 var passport = require('passport');
 var router = express.Router();
+var multer =require('multer');
+var upload = multer({ dest: './uploads/' });
+var cloudinary = require('cloudinary');
 
 //splashpage
 router.get('/', function(req, res) {
@@ -86,7 +89,7 @@ router.get('/callback/:provider', function(req, res) {
     if (user) {
       req.login(user, function(err) {
         if (err) throw err;
-        req.flash('success', 'You are now logged in with ' + req.params.provider);
+        // req.flash('success', 'You are now logged in with ' + req.params.provider);
         res.redirect('/profile');
       });
     } else {
@@ -104,22 +107,61 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/profile', function(req, res) {
-  // console.log("working" + req.user.id)
+  var userPic = cloudinary.url(req.user.pic, { width: 150, height: 150, crop: 'thumb', gravity: 'face',radius: 'max' })
 	if(req.user) {
   db.favorite.findAll( {
     where: {
       userId: req.user.id
     }
   }).then(function(data){
-    res.render("profile", {data: data})
-    // res.send(data)
+    res.render("profile", {data: data, userPic: userPic})
   })
-
 	}else {
 	res.send("You're not logged in");
 }
 })
 
+//delete button -- not working
+router.delete('/delete/:id', function(req, res) {
+ db.favorite.find({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(favorite) {
+    favorite.destroy()
+    // res.send({'msg': 'success'});
+  }).then(function(e) {
+    res.send({'msg': 'error', 'error': e});
+  });
+});
 
+//settings page
+router.get('/settings', function(req, res) {
+    var userPic = cloudinary.url(req.user.pic)
+    if(req.user) {
+    res.render("settings", {userPic: userPic})
+    // res.send(data)
+  }else {
+  res.send("You're not logged in");
+}
+})
+
+router.post('/settings', upload.single('myFile'), function(req, res) {
+  cloudinary.uploader.upload(req.file.path, function(result) {
+    db.user.find({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(user) {
+      cloudinary.uploader.upload(req.file.path, function(result) {
+        user.updateAttributes({
+          pic: result.public_id
+        }).then(function(){
+          res.redirect('/profile')
+        })
+      })
+    })
+  });
+})
 
 module.exports = router;

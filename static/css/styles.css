@@ -6,14 +6,139 @@
 	background: #99CC33;
 	color: white;
 }*/
+/*
+body {
+	background-image: url('https://t2.ftcdn.net/jpg/00/93/68/81/240_F_93688159_kLJX1rSWoXwiYPc3VzZ7MmcoTeVPtAJU.jpg');
+	background-size: cover;
+}*/
 
 .rightButton {
-	/*float: left !important;*/
 	text-align: right;
 }
 
 .leftButton {
-	/*float: right !important;*/
 	text-align: left;
+
+}
+.circle {
+	margin-top: 10px;
+	height: 120px;
+	vertical-align: center;
+}
+#middle_row {
+	margin-top: 0px;
+	padding: none;
+	margin-right: 0px;
+	margin-right: 0px;
+}
+
+#bottom_row {
+	vertical-align: bottom;
+	padding: none;
+	padding-bottom: 10px;
+	
+}
+
+.login_img {
+	max-width: 200px;
+	padding: none;
+	vertical-align: center;
+}
+
+#linkedWine {
+	position: absolute;
+}
+
+#profile_pic {
+	float: left;
+	padding-left: 40px;
+	padding-top: 10px;
+}
+#upload_photo {
+	border: 2px solid black;
+	padding-bottom: 200px;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: center;
+}
+.homepage {
+	background-color: #31CABA;
+	min-height: 900px;
+	margin-top: -20px;
+
+}
+#homepage_h1 {
+	text-align: center;
+	font-family: 'Work Sans', sans-serif;
+	color: white;
+	font-weight: 200px;
+}
+
+
+/*#homepage {
+    border: 4px solid black;
+    padding: none;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 120%;
+    margin-right: 60%;
+    float: left;
+    text-align: center;
+    font-size: 30px;
+}*/
+#home_nav {
+	color: black !important;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 100px;
+	font-size: 20px;
+}
+
+#nav_bar {
+	background-color: #00897b;
+}
+#nav_bar a {
+	display: inline;
+}
+.nav_right {
+	float: right;
+}
+
+#wineround {
+	margin-top: 40px;
+	display: inline;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: none !important;
+}
+/*.barrels {
+	max-width: 100%;
+}*/
+
+nav {
+    color: #fff;
+    background-color: #009688;
+    width: 100%;
+    height: 56px;
+    line-height: 60px;
+}
+.side-nav {
+	text-align: center;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 200px;
+}
+.radio_btn{
+	display: inline;
+}
+#searchbar {
+	margin-top: 20px;
+}
+#fb_btn {
+    border: none;
+    box-shadow: none;
+    color: #fafafa;
+    height: 40px;
+    padding-top: 0px;
+    width: 200px;
+    padding-left: 0px;
 }
 

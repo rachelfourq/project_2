@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.favorite.belongsTo(models.user);
+        models.favorite.hasMany(models.comment);
       }
     }
   });

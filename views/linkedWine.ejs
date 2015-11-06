@@ -1,16 +1,29 @@
-<div class="row" id='title'>
-<h1 class='col s12'><%= data.Products.List[0].Name %></h1>
-<img src="<%= data.Products.List[0].Labels[0].Url %>">
+<div class="row">
+
+	<div class="col m4 offset-m4">
+		<div id="linkedWine">
+		
+			<div id='title'>
+				<h1 class='col s12'><%= data.Products.List[0].Name %></h1>
+				<img src="<%= data.Products.List[0].Labels[0].Url %>">
+			</div>
+
+
+			<form action="/favorites" method="POST" role="form">
+				<input name="wineName" type="hidden" value="<%= data.Products.List[0].Name %>">
+				<input name="wineId" type="hidden" value="<%= data.Products.List[0].Id %>">
+				<input name="image" type="hidden" value="<%= data.Products.List[0].Labels[0].Url %>">
+				<input name="price" type="hidden" value="<%= data.Products.List[0].PriceRetail %>">
+				<input name="currentUser" type="hidden" value="<%= currentUser.id %>">
+				
+				<button id='submit'>+ TO FAVORITES</button>
+			</form>
+
+		</div>
+
+	</div>
+
+		
+	</div>
+
 </div>
-
-
-<form action="/favorites" method="POST" role="form">
-	<input name="wineName" type="hidden" value="<%= data.Products.List[0].Name %>">
-	<input name="wineId" type="hidden" value="<%= data.Products.List[0].Id %>">
-	<input name="image" type="hidden" value="<%= data.Products.List[0].Labels[0].Url %>">
-	<input name="price" type="hidden" value="<%= data.Products.List[0].PriceRetail %>">
-	<input name="currentUser" type="hidden" value="<%= currentUser.id %>">
-	
-
-	<button id='submit'>+ TO FAVORITES</button>
-</form>
