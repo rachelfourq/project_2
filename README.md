@@ -1,20 +1,19 @@
-# WeWine a Full Stack Project by Rachel Fourquet
+# WeWine
+### About
+WeWine is a full stack project created using Express/Node.js. It allows the user to log in, search through a wine database, save their favorite wines and comment on them for future reference. The app has full CRUD functionality and was a really fun app to create and style!
 
-APIs Used:
-  -Facebook OAuth
-  -Wine.com
-  -Cloudinary
-  
-Technologies Used:
-  -HTML
-  -CSS
-  -jQuery
-  -Node 
-  -pSQL
+### Technologies Used
+* Express/Node.js
+* HTML
+* CSS
+* JavaScript
+* Materialize
+* pSQL
 
-WeWine is a database to search and save your favorites wines. 
-You can create a profile, save wines to your personal profile and add comments to each wine.
+### APIs Used
+* Facebook OAuth
+* Wine.com
+* Cloudinary
 
-
-  
-
+### Upcoming Additions
+* Make it a community by adding a self-referencing user model
